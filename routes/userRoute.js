@@ -6,11 +6,11 @@ const {
   getAdmin,
   authAdmin,
   destroyAuthAdmin,
-} = require("../controllers/adminController");
+} = require("../controllers/userController");
 
 router.route("/").post(register);
-router.route("/auth").post(authAdmin);
-router.route("/destroy-auth").get(auth, destroyAuthAdmin);
+router.route("/login").post(authAdmin);
+router.route("/logout").get(auth, destroyAuthAdmin);
 router.route("/").get(auth, getAdmin);
 
 module.exports = router;
