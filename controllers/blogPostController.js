@@ -24,11 +24,7 @@ const dataFilePath = 'post.json';
         const { title, content,author } = req.body;
         const currentDate = new Date();
         const timeStamp = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')} ${currentDate.getHours().toString().padStart(2, '0')}:${currentDate.getMinutes().toString().padStart(2, '0')}:${currentDate.getSeconds().toString().padStart(2, '0')}`;
-        // const authorId = 1;
-        // Find the highest ID in existing posts
-        const highestId = posts.reduce((maxId, post) => (post.id > maxId ? post.id : maxId), 0);
-        
-        // Generate a new ID by incrementing the highest ID
+        const highestId = posts.reduce((maxId, post) => (post.id > maxId ? post.id : maxId), 0)
         const newPostId = highestId + 1;
         const newPost = { id: newPostId, title, content,author,timeStamp };
         posts.push(newPost);
