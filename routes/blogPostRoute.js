@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-// const auth = require("../middleware/auth");
+
 const {
   createBlogPost,
   readBlogPost,
@@ -10,9 +10,9 @@ const {
 } = require("../controllers/blogPostController");
 
 router.route("/").post(createBlogPost);
-router.route("/").get( readBlogPost);
-router.route("/:id").get( showBlogPost);
-router.route("/:id").patch( updateBlogPost);
-router.route("/:id").delete( destroyBlogPost);
+router.route("/").get(readBlogPost);
+router.route("/:id").get(showBlogPost);
+router.route("/:id").patch(updateBlogPost);
+router.route("/:id").delete(destroyBlogPost);
 
 module.exports = router;
