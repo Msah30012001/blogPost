@@ -4,13 +4,6 @@ const dataFilePath = 'post.json';
 
     let posts = [];
 
-/**
- * in createBlogPost Method is responsible for the creating 
- * a new blog post for authorized admin or user
- * 
- *  
- */
-
     const saveDataToFile = async()=>{
         try {
             await fs.writeFile(dataFilePath, JSON.stringify(posts, null, 2), 'utf-8');
@@ -18,6 +11,13 @@ const dataFilePath = 'post.json';
             console.error('Error writing data to file:', error.message);
           } 
     }
+
+/**
+ * in createBlogPost Method is responsible for the creating 
+ * a new blog post for authorized admin or user
+ * 
+ *  
+ */
 
   const createBlogPost = async (req, res, next) => {
     try {
@@ -82,7 +82,13 @@ const dataFilePath = 'post.json';
     }
   }; 
   
-  
+/**
+ * in updateBlogPost Method is responsible for the updating a record 
+ * using a postid
+ * 
+ *  
+ */
+
   const updateBlogPost = async (req, res, next) => {
     try {
         const postId = parseInt(req.params.id);
@@ -104,6 +110,14 @@ const dataFilePath = 'post.json';
       next(error);
     }
   };
+
+/**
+ * in destroyBlogPost Method is responsible for the deleting a record
+ * using a postid
+ * 
+ *  
+ */
+
   const destroyBlogPost = async (req, res, next) => {
     try {
         const postId = parseInt(req.params.id);
